@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Triplos y Cuádruplos</title>
- 
+    
     <link rel="stylesheet" href="./public/css/b5.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./public/css/main.css">
     
     <script src="./public/js/b5.js"></script>
     <script src="./public/js/popper.js"></script>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container py-5">
         <div class="row justify-content-center">
             
-            <div class="col-12 text-center mb-3">
-                <h1>Triplos y Cuádruplos</h1>
+            <div class="col-12 text-center mb-4">
+                <h1>Triplos y Cuádruplos</h1>   
             </div>
 
-            <div class="col-md-8">
-                <div class="card shadow-sm p-4 mb-4">
+            <div class="col-md-8 col-lg-7">
+                <div class="card p-4 p-md-5 mb-4">
                     
-                    <div class="mb-3">
-                        <label class="form-label fw-bold" for="expresion">Expresión Aritmética:</label>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-secondary small text-uppercase" for="expresion">Expresión Aritmética</label>
                         <input id="expresion" class="form-control" type="text" placeholder="Ej: r = a + (b - c) * d + (e / f * g)">
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold" for="tipoRepresentacion">Tipo de Representación:</label>
+                        <label class="form-label fw-bold text-secondary small text-uppercase" for="tipoRepresentacion">Tipo de Representación</label>
                         <select id="tipoRepresentacion" class="form-select">
                             <option value="">Selecciona una opción...</option>
                             <option value="cuadruplos">Cuádruplos</option>
@@ -36,17 +39,17 @@
                         </select>
                     </div>
 
-                    <div class="d-flex gap-2">
-                        <button id="btnGenerar" type="button" class="btn btn-primary btn-lg w-100 fw-bold">
+                    <div class="d-flex gap-3">
+                        <button id="btnGenerar" type="button" class="btn btn-primary flex-grow-1 fw-bold">
                             Generar Código Intermedio
                         </button>
-                        <button type="button" id="btnLimpiar" class="btn btn-secondary btn-lg">Limpiar</button>
+                        <button type="button" id="btnLimpiar" class="btn btn-secondary fw-bold">Limpiar</button>
                     </div>
 
                 </div>
             </div>
 
-            <div class="col-md-8" id="resultado">
+            <div class="col-md-8 col-lg-7" id="resultado">
             </div>
 
         </div>
