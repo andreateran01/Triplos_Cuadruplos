@@ -81,8 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function reducirSubExpresion(sub, callbackOp) {
-        let tokens = sub.trim().split(/\s+/);
-        if (tokens.length === 1) return tokens[0];
+        // Tokenizador que acepta letras, números y operadores de forma continua o separada
+        let tokens = sub.match(/[a-zA-Z0-9_.]+|\+|\-|\*|\/|\(\vert{}\)/g);
+        if (!tokens || tokens.length === 1) return sub.trim();
 
         for (let i = 0; i < tokens.length; i++) {
             if (tokens[i] === '*' || tokens[i] === '/') {
@@ -145,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function generarTablaTriplos(instrucciones, variableAsignacion) {
         const mapaPunteros = {};
-        // Los índices de los triplos inician en 0
         instrucciones.forEach((inst, index) => {
             mapaPunteros[inst.res] = `(${index})`;
         });
