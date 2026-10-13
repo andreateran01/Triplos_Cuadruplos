@@ -145,8 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function generarTablaTriplos(instrucciones, variableAsignacion) {
         const mapaPunteros = {};
+        // Los índices de los triplos inician en 0
         instrucciones.forEach((inst, index) => {
-            mapaPunteros[inst.res] = `(${index + 1})`;
+            mapaPunteros[inst.res] = `(${index})`;
         });
 
         let rows = instrucciones.map((inst, index) => {
@@ -154,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const op2 = mapaPunteros[inst.op2] || inst.op2;
             return `
                 <tr>
-                    <td>(${index + 1})</td>
+                    <td>(${index})</td>
                     <td class="fw-bold">${inst.op}</td>
                     <td>${op1}</td>
                     <td>${op2}</td>
@@ -163,10 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }).join('');
 
         if (variableAsignacion && instrucciones.length > 0) {
-            const ultimoPuntero = `(${instrucciones.length})`;
+            const indiceAsignacion = instrucciones.length;
+            const ultimoPuntero = `(${indiceAsignacion - 1})`;
             rows += `
                 <tr>
-                    <td>(${instrucciones.length + 1})</td>
+                    <td>(${indiceAsignacion})</td>
                     <td class="fw-bold">=</td>
                     <td class="text-success fw-bold">${variableAsignacion}</td>
                     <td>${ultimoPuntero}</td>
